@@ -6,10 +6,11 @@ const app=express();
 const ejs=require("ejs");
 const bodyParser=require("body-parser");
 const _=require("lodash");
+const path=require("path");
 var blogs=[];
 app.use(bodyParser.urlencoded({extended:true}));
 app.listen(3000);
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname,"/public")));
 app.set("view engine","ejs");
 
 app.get("/",function(req,res){
